@@ -1,0 +1,715 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* Root Variables */
+:root {
+  --primary-color: #C8102E; /* National Museum Red */
+  --primary-dark: #A00E23;
+  --primary-light: #DC143C;
+  --secondary-color: #F57C00;
+  --accent-color: #2E7D32;
+  --dark-color: #1a1a1a;
+  --light-gray: #f8f9fa;
+  --text-muted: #6c757d;
+}
+
+/* General Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--dark-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: var(--primary-dark);
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.social-links a {
+  color: #fff;
+  margin-right: 15px;
+  opacity: 0.9;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.contact-info {
+  color: #fff;
+}
+
+.contact-info small {
+  opacity: 0.95;
+}
+
+/* Main Navigation */
+.main-nav {
+  background-color: var(--primary-color) !important;
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.brand-subtext {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.nav-link-custom {
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  position: relative;
+  opacity: 0.95;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link-custom:hover {
+  color: #fff !important;
+  opacity: 1;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s;
+}
+
+.nav-link-custom:hover::after {
+  width: 80%;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.3);
+  padding: 4px 8px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.donate-btn {
+  background-color: #fff;
+  color: var(--primary-color);
+  border: 2px solid #fff;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.donate-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Hero Carousel */
+.hero-carousel {
+  height: 600px;
+  margin-top: 0;
+}
+
+.hero-slide {
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero-buttons .btn {
+  margin: 0 10px;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-buttons .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.hero-buttons .btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Quick Access Section */
+.quick-access {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-top: -30px;
+  position: relative;
+  z-index: 10;
+}
+
+.quick-access-card {
+  padding: 20px;
+  transition: transform 0.3s;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.quick-access-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.quick-icon {
+  font-size: 2.5rem;
+}
+
+/* Update primary color references throughout */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Exhibition Tabs */
+.exhibition-tabs .nav-link {
+  color: var(--dark-color);
+  font-weight: 600;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 10px 20px;
+}
+
+.exhibition-tabs .nav-link.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background-color: transparent;
+}
+
+.exhibition-tabs .nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Exhibition Cards */
+.exhibition-card {
+  border: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.exhibition-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.exhibition-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.exhibition-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.exhibition-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(200,16,46,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.exhibition-card:hover .exhibition-overlay {
+  opacity: 1;
+}
+
+.exhibition-card:hover .exhibition-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.exhibition-type {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+/* Museums Section */
+.museums-section {
+  background-color: #fff;
+}
+
+.museum-card {
+  border: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+  height: 100%;
+}
+
+.museum-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.museum-image-wrapper {
+  height: 250px;
+  overflow: hidden;
+}
+
+.museum-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.museum-card:hover .museum-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.museum-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.museum-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlights-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.highlights-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.highlights-list li:before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.museum-actions .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.museum-actions .btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* News & Events */
+.news-card {
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.news-card:hover {
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.news-category {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.category-announcement {
+  background-color: #FFEBEE;
+  color: var(--primary-color);
+}
+
+.category-exhibition {
+  background-color: #FFF3E0;
+  color: var(--secondary-color);
+}
+
+.category-program {
+  background-color: #E8F5E9;
+  color: var(--accent-color);
+}
+
+.news-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.read-more {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.read-more:hover {
+  color: var(--primary-dark);
+}
+
+.read-more i {
+  transition: transform 0.3s;
+}
+
+.read-more:hover i {
+  transform: translateX(5px);
+}
+
+/* Event Items */
+.event-item {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.event-item:hover {
+  background-color: #e9ecef;
+}
+
+.date-box {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 60px;
+}
+
+.date-month {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.date-day {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Virtual Tours CTA */
+.virtual-tours-cta {
+  background: linear-gradient(rgba(200, 16, 46, 0.9), rgba(160, 14, 35, 0.9)), 
+              url('https://nationalmuseum.gov.ph/wp-content/uploads/2023/06/virtual-tour-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.cta-content {
+  padding: 3rem 0;
+}
+
+/* Newsletter Section */
+.newsletter-form .form-control {
+  border-radius: 25px;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+}
+
+.newsletter-form .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(200, 16, 46, 0.25);
+}
+
+.newsletter-form .btn {
+  border-radius: 25px;
+  padding: 12px 30px;
+}
+
+/* Footer */
+.museum-footer {
+  background-color: var(--dark-color);
+  color: #fff;
+}
+
+.footer-main {
+  border-bottom: 1px solid #333;
+}
+
+.footer-brand img {
+  filter: brightness(0) invert(1);
+}
+
+.social-footer-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all 0.3s;
+}
+
+.social-footer-icon:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-item i {
+  color: var(--primary-color) !important;
+}
+
+.footer-bottom {
+  background-color: #0d0d0d;
+}
+
+.footer-link {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 400px;
+  }
+  
+  .hero-slide {
+    height: 400px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .brand-text {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link-custom {
+    font-size: 0.85rem;
+  }
+  
+  .top-bar .contact-info {
+    display: none;
+  }
+  
+  .quick-access {
+    margin-top: 0;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 20px 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Additional Red Theme Adjustments */
+.bi-telephone::before,
+.bi-envelope::before {
+  color: rgba(255,255,255,0.8);
+}
+
+/* Sticky Navigation Shadow */
+.main-nav.scrolled {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Search Icon in Navigation (if added) */
+.nav-search {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-left: 20px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.nav-search:hover {
+  opacity: 1;
+}
