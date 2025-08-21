@@ -713,3 +713,28 @@ h1, h2, h3, h4, h5, h6 {
 .nav-search:hover {
   opacity: 1;
 }
+
+/* Center navbar links */
+.navbar-collapse {
+  justify-content: center !important;
+}
+
+.navbar-nav {
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Responsive adjustments for centered nav */
+@media (max-width: 991px) {
+  .navbar-nav {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .nav-link-custom {
+    margin: 0.5rem 0 !important;
+    display: inline-block;
+  }
+}
