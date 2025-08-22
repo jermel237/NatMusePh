@@ -2,7 +2,7 @@ var APP_DATA = {
   "scenes": [
     {
       "id": "0-fineartsreal",
-      "name": "FineArts(Real)",
+      "name": "Museum of FineArts",
       "levels": [
         {
           "tileSize": 256,

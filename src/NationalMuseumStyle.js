@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Row, Col, Card, Button, Carousel, Form, Tab, Tabs } from "react-bootstrap";
+import { Navbar, Nav, Container, Row, Col, Button, Carousel} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./NationalMuseumStyle.css";
 
 const NationalMuseumStyle = () => {
@@ -7,22 +8,10 @@ const NationalMuseumStyle = () => {
 
   return (
     <div>
-      {/* Top Bar */}
-        <Container>
-          <div className="d-flex justify-content-between align-items-center py-2">
-            <div className="social-links">
-              <a href="#" className="social-icon"><i className="bi bi-facebook"></i></a>
-              <a href="#" className="social-icon"><i className="bi bi-twitter"></i></a>
-              <a href="#" className="social-icon"><i className="bi bi-instagram"></i></a>
-              <a href="#" className="social-icon"><i className="bi bi-youtube"></i></a>
-            </div>
-          </div>
-        </Container>
-
       {/* Main Navigation */}
       <Navbar bg="white" expand="lg" sticky="top" className="main-nav shadow-sm">
         <Container>
-          <Navbar.Brand href="#home" className="d-flex align-items-center">
+          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/National_Museum_of_the_Philippines_logo.svg/1200px-National_Museum_of_the_Philippines_logo.svg.png"
               alt="National Museum Logo"
@@ -36,8 +25,8 @@ const NationalMuseumStyle = () => {
           </Navbar.Brand>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#home" className="mx-2 nav-link-custom">HOME</Nav.Link>
-              <Nav.Link href="#vTour" className="mx-2 nav-link-custom">360 VIRTUAL TOUR</Nav.Link>
+              <Nav.Link as={Link} to="/" className="mx-2 nav-link-custom">HOME</Nav.Link>
+              <Nav.Link as={Link} to="/virtual-tour" className="mx-2 nav-link-custom">360 VIRTUAL TOUR</Nav.Link>
               <Nav.Link href="#about" className="mx-2 nav-link-custom">ABOUT</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -57,7 +46,7 @@ const NationalMuseumStyle = () => {
               <h1 className="display-3 fw-bold mb-3 text-shadow">NatioMuse V-Tour</h1>
               <p className="lead mb-4">Home to the National Art Collections</p>
               <div className="hero-buttons">
-                <Button variant="primary" size="lg" className="me-3">Start using the 360 Virtual Tour</Button>
+                <Button as={Link} to="/virtual-tour" variant="primary" size="lg" className="me-3">Start using the 360 Virtual Tour</Button>
               </div>
             </div>
           </div>
@@ -70,7 +59,7 @@ const NationalMuseumStyle = () => {
           <div className="cta-content text-center text-white">
             <h2 className="display-5 fw-bold mb-3">Can't Visit In Person?</h2>
             <p className="lead mb-4">Take a virtual tour of our museums from anywhere in the world</p>
-            <Button variant="light" size="lg" className="me-3">Start Virtual Tour</Button>
+            <Button as={Link} to="/virtual-tour" variant="light" size="lg" className="me-3">Start Virtual Tour</Button>
             <Button variant="outline-light" size="lg">Watch Video Tours</Button>
           </div>
         </Container>
