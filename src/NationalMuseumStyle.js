@@ -14,7 +14,7 @@ const NationalMuseumStyle = () => {
           <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/National_Museum_of_the_Philippines_logo.svg/1200px-National_Museum_of_the_Philippines_logo.svg.png"
-              alt="National Museum Logo"
+              alt="Museum Fine Art Logo"
               height="60"
               className="me-3"
             />
@@ -46,7 +46,7 @@ const NationalMuseumStyle = () => {
               <h1 className="display-3 fw-bold mb-3 text-shadow">NatioMuse V-Tour</h1>
               <p className="lead mb-4">Home to the National Art Collections</p>
               <div className="hero-buttons">
-                <Button as={Link} to="/virtual-tour" variant="primary" size="lg" className="me-3">Start using the 360 Virtual Tour</Button>
+                <Button as={Link} to="/virtual-tour" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>
               </div>
             </div>
           </div>
@@ -60,7 +60,6 @@ const NationalMuseumStyle = () => {
             <h2 className="display-5 fw-bold mb-3">Can't Visit In Person?</h2>
             <p className="lead mb-4">Take a virtual tour of our museums from anywhere in the world</p>
             <Button as={Link} to="/virtual-tour" variant="light" size="lg" className="me-3">Start Virtual Tour</Button>
-            <Button variant="outline-light" size="lg">Watch Video Tours</Button>
           </div>
         </Container>
       </section>
@@ -74,11 +73,11 @@ const NationalMuseumStyle = () => {
                 <div className="footer-brand mb-4">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/National_Museum_of_the_Philippines_logo.svg/1200px-National_Museum_of_the_Philippines_logo.svg.png"
-                    alt="National Museum Logo"
+                    alt="Museum Fine Art Logo"
                     height="50"
                     className="mb-3"
                   />
-                  <h5 className="text-white">National Museum of the Philippines</h5>
+                  <h5 className="text-white">Museum of the Fine Arts Philippines</h5>
                 </div>
                 <p className="text-white-50">
                   The National Museum manages and develops the national reference collections in the areas 
@@ -96,11 +95,7 @@ const NationalMuseumStyle = () => {
                 <h6 className="text-white mb-3">Quick Links</h6>
                 <ul className="list-unstyled footer-links">
                   <li><a href="#">About Us</a></li>
-                  <li><a href="#">Museums</a></li>
                   <li><a href="#">Collections</a></li>
-                  <li><a href="#">Programs</a></li>
-                  <li><a href="#">Research</a></li>
-                  <li><a href="#">Publications</a></li>
                 </ul>
               </Col>
               
