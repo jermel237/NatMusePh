@@ -424,27 +424,27 @@
   }
 
   /*================================================================*/
-  function createShareLink(hotspot) {
+  function createShareLink(hotspot) { 
     // Get current scene
-    const currentScene = scenes.find(scene => 
-      scene.data.infoHotspots.some(h => h.title === hotspot.title)
-    );
+const currentScene = scenes.find(scene => 
+    scene.data.infoHotspots.some(h => h.title === hotspot.title && h.yaw === hotspot.yaw && h.pitch === hotspot.pitch)
+);
     
     if (currentScene) {
-      // Use hotspot's yaw/pitch coordinates
-      const shareUrl = setUrlParams(
-        currentScene.data.id,
-        hotspot.yaw,
-        hotspot.pitch,
-        currentScene.data.initialViewParameters.fov
-      );
-      
-      // Copy to clipboard
-      navigator.clipboard.writeText(shareUrl).then(function() {
-        alert('Share link copied to clipboard!\n' + shareUrl);
-      }).catch(function(err) {
-        alert('Failed to copy share link: ' + err);
-      });
+        // Use hotspot's yaw/pitch coordinates
+        const shareUrl = setUrlParams(
+            currentScene.data.id,
+            hotspot.yaw,
+            hotspot.pitch,
+            currentScene.data.initialViewParameters.fov
+        );
+        
+        // Copy to clipboard
+        navigator.clipboard.writeText(shareUrl).then(function() {
+            alert('Share link copied to clipboard!\n' + shareUrl);
+        }).catch(function(err) {
+            alert('Failed to copy share link: ' + err);
+        });
     }
   }
   /*================================================================*/
