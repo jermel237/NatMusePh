@@ -46,7 +46,7 @@ const NationalMuseumStyle = () => {
               <h1 className="display-3 fw-bold mb-3 text-shadow">NatioMuse V-Tour</h1>
               <p className="lead mb-4">Home to the National Art Collections</p>
               <div className="hero-buttons">
-                <Button as={Link} to="/virtual-tour" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>
+                <Button href="/tour/index.html" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>
               </div>
             </div>
           </div>
