@@ -16,6 +16,23 @@
 'use strict';
 
 (function() {
+  // Add Back to Home button
+  function addBackToHomeButton() {
+    // Removed dynamic button creation as button is now in index.html
+  }
+
+  addBackToHomeButton();
+
+  // Add event listener for Back to Home button in title bar
+  document.addEventListener('DOMContentLoaded', function() {
+    var backToHomeButton = document.getElementById('backToHomeButton');
+    if (backToHomeButton) {
+      backToHomeButton.addEventListener('click', function() {
+        window.top.location.href = '/';
+      });
+    }
+  });
+
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
   var screenfull = window.screenfull;
@@ -184,7 +201,20 @@
 
   function switchScene(scene) {
     stopAutorotate();
-    scene.view.setParameters(scene.data.initialViewParameters);
+    
+    // Check if URL parameters exist and apply custom view
+    const urlParams = getUrlParams();
+    let viewParameters = scene.data.initialViewParameters;
+    
+    if (urlParams.scene === scene.data.id && urlParams.yaw !== null && urlParams.pitch !== null) {
+      viewParameters = {
+        pitch: urlParams.pitch,
+        yaw: urlParams.yaw,
+        fov: urlParams.fov !== null ? urlParams.fov : scene.data.initialViewParameters.fov
+      };
+    }
+    
+    scene.view.setParameters(viewParameters);
     scene.scene.switchTo();
     startAutorotate();
     updateSceneName(scene);
@@ -311,6 +341,20 @@
     title.innerHTML = hotspot.title;
     titleWrapper.appendChild(title);
 
+    /*================================================================*/
+
+    // Create share element (only for specific hotspots)
+    var shareWrapper = document.createElement('div');
+    shareWrapper.classList.add('info-hotspot-share-wrapper');
+    var shareIcon = document.createElement('img');
+    shareIcon.src = 'img/share.png';
+    shareIcon.classList.add('info-hotspot-share-icon');
+    shareIcon.title = 'Share this view';
+    shareWrapper.appendChild(shareIcon);
+
+    /*================================================================*/
+
+
     // Create close element.
     var closeWrapper = document.createElement('div');
     closeWrapper.classList.add('info-hotspot-close-wrapper');
@@ -322,6 +366,7 @@
     // Construct header element.
     header.appendChild(iconWrapper);
     header.appendChild(titleWrapper);
+    header.appendChild(shareWrapper); // add this on
     header.appendChild(closeWrapper);
 
     // Create text element.
@@ -344,8 +389,29 @@
       modal.classList.toggle('visible');
     };
 
-    // Show content when hotspot is clicked.
-    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
+    // Show content when hotspot is clicked and display share button
+    wrapper.querySelector('.info-hotspot-header').addEventListener('click', function() {
+      const isVisible = wrapper.classList.contains('visible');
+      toggle();
+      
+      if (!isVisible) {
+        // Opening the hotspot - show share button
+        shareWrapper.style.display = 'inline-block';
+      } else {
+        // Closing the hotspot - hide share button
+        shareWrapper.style.display = 'none';
+      }
+    });
+
+
+    /*================================================================*/
+    // Share functionality for all hotspots
+    shareWrapper.addEventListener('click', function(e) {
+      e.stopPropagation();
+      createShareLink(hotspot);
+    });
+    /*================================================================*/
+
 
     // Hide content when close icon is clicked.
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
@@ -356,6 +422,33 @@
 
     return wrapper;
   }
+
+  /*================================================================*/
+  function createShareLink(hotspot) {
+    // Get current scene
+    const currentScene = scenes.find(scene => 
+      scene.data.infoHotspots.some(h => h.title === hotspot.title)
+    );
+    
+    if (currentScene) {
+      // Use hotspot's yaw/pitch coordinates
+      const shareUrl = setUrlParams(
+        currentScene.data.id,
+        hotspot.yaw,
+        hotspot.pitch,
+        currentScene.data.initialViewParameters.fov
+      );
+      
+      // Copy to clipboard
+      navigator.clipboard.writeText(shareUrl).then(function() {
+        alert('Share link copied to clipboard!\n' + shareUrl);
+      }).catch(function(err) {
+        alert('Failed to copy share link: ' + err);
+      });
+    }
+  }
+  /*================================================================*/
+
 
   // Prevent touch and scroll events from reaching the parent element.
   function stopTouchAndScrollEventPropagation(element, eventList) {
@@ -386,7 +479,70 @@
     return null;
   }
 
-  // Display the initial scene.
-  switchScene(scenes[0]);
+  /*==========================================================*/
+
+  // URL Parameter Handling Functions
+  function getUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      scene: params.get('scene'),
+      yaw: params.get('yaw') ? parseFloat(params.get('yaw')) : null,
+      pitch: params.get('pitch') ? parseFloat(params.get('pitch')) : null,
+      fov: params.get('fov') ? parseFloat(params.get('fov')) : null
+    };
+  }
+
+  function setUrlParams(sceneId, yaw, pitch, fov) {
+    const params = new URLSearchParams();
+    params.set('scene', sceneId);
+    params.set('yaw', yaw.toFixed(6));
+    params.set('pitch', pitch.toFixed(6));
+    params.set('fov', fov.toFixed(6));
+    
+    const newUrl = window.location.origin + window.location.pathname + '?' + params.toString();
+    return newUrl;
+  }
+
+  function clearUrlParams() {
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
+  // Display the initial scene with URL parameter support
+  const urlParams = getUrlParams();
+  if (urlParams.scene) {
+    const targetScene = findSceneById(urlParams.scene);
+    if (targetScene) {
+      switchScene(targetScene);
+    } else {
+      switchScene(scenes[0]);
+    }
+  } else {
+    switchScene(scenes[0]);
+  }
+
+  /* =============================================================================== */
+  // Audio control functionality
+  function setupAudioControls() {
+    // This will be called when hotspots are created to set up audio controls
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('#playAudio') || e.target.closest('#playAudio img')) {
+        const audioButton = e.target.closest('#playAudio') || e.target.closest('#playAudio img').parentElement;
+        const audioElement = audioButton.nextElementSibling;
+        
+        if (audioElement.paused) {
+          audioElement.play();
+          audioButton.innerHTML = '<img src="img/pause.png" alt="Pause Audio" />';
+        } else {
+          audioElement.pause();
+          audioButton.innerHTML = '<img src="img/play.png" alt="Play Audio" />';
+        }
+      }
+    });
+  }
+
+  // Set up audio controls after a short delay to ensure DOM is ready
+  setTimeout(setupAudioControls, 1000);
 
 })();
+
+/* =============================================================================== */

@@ -26,7 +26,7 @@ const NationalMuseumStyle = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link as={Link} to="/" className="mx-2 nav-link-custom">HOME</Nav.Link>
-              <Nav.Link as={Link} to="/virtual-tour" className="mx-2 nav-link-custom">360 VIRTUAL TOUR</Nav.Link>
+              <Nav.Link href="/tour/index.html" className="mx-2 nav-link-custom">360 VIRTUAL TOUR</Nav.Link>
               <Nav.Link href="#about" className="mx-2 nav-link-custom">ABOUT</Nav.Link>
             </Nav>
           </Navbar.Collapse>
