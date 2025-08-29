@@ -37,7 +37,26 @@ var APP_DATA = {
           "yaw": -0.5656561021033006,
           "pitch": -0.3423938244017002,
           "title": "Spolarium Painting",
-          "text": "Text"
+          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+                      <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
+                        <div class="image-content">
+                          <video controls class="right-video" style="height: 200px; width: 300px;">
+                          <source src="artifactVid/asgoreTruck.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                        <div class="text-content">
+                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <button id="playAudio" class="audio-button">
+                            <img src="img/play.png" alt="Play Audio" />
+                          </button>
+                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                        </div>
+                      </div>
+                      <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                      </div>
+                    </div>`
         },
         {
           "yaw": 1.5449345061562152,
