@@ -624,7 +624,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   position: absolute;
   width: auto;
   height: auto;
-  max-height: 200px;
+  max-height: 300px;
   top: 40px;
   left: 0;
   padding: 10px;
@@ -970,3 +970,18 @@ body.view-control-buttons .viewControlButton {
   width: 290px; /* Increased to accommodate share button in title area */
 }
 /*================================================================*/
+
+.title {
+  font-weight: bold;
+}
+
+.subTitle {
+  font-style: italic;
+}
+
+.art-img {
+  height: 400px;
+  width: 500px;
+  object-fit: cover; /* optional, keeps aspect ratio nicely */
+  border-radius: 10px; /* optional, adds rounded corners */
+}

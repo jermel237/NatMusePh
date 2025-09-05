@@ -62,7 +62,7 @@ const NationalMuseumStyle = () => {
               }}
             >
               <div className="hero-content">
-                <h1 className="display-3 fw-bold mb-3 text-shadow">Discover Philippine Art Heritage</h1>
+                <h1 className="display-3 fw-bold mb-3 text-shadow">Discover Philippine Fine Art Heritage</h1>
                 <p className="lead mb-4">Explore the Rich Cultural Collections</p>
                 <div className="hero-buttons">
                   <Button href="/tour/index.html" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>

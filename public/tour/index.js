@@ -546,3 +546,31 @@ const currentScene = scenes.find(scene =>
 })();
 
 /* =============================================================================== */
+
+
+  function openFullscreen() {
+    const img = document.getElementById("artImage");
+
+    if (img.requestFullscreen) {
+      img.requestFullscreen();
+    } else if (img.webkitRequestFullscreen) { // Safari
+      img.webkitRequestFullscreen();
+    } else if (img.msRequestFullscreen) { // IE/Edge
+      img.msRequestFullscreen();
+    }
+  }
+
+  // Optional: adjust styling when in fullscreen
+  document.addEventListener("fullscreenchange", () => {
+    const img = document.getElementById("artImage");
+    if (document.fullscreenElement === img) {
+      img.style.width = "100%";
+      img.style.height = "100%";
+      img.style.objectFit = "contain"; // makes sure it scales properly
+    } else {
+      img.style.width = "500px";
+      img.style.height = "400px";
+      img.style.objectFit = "cover"; // back to normal
+    }
+  });
+

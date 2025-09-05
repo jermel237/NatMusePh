@@ -41,21 +41,36 @@ var APP_DATA = {
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
                           <video controls class="right-video" style="height: 200px; width: 300px;">
-                          <source src="artifactVid/How A Painting Started A Revolution.mp4" type="video/mp4">
+                          <source src="artifactVid/SpoliariumVid.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
                         <div class="text-content">
-                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <p class="title"><b>Spoliarium Painting N</b></p>
+                          <p class="subTitle">
+                          JUAN LUNA Y. NOVICIO <br> (1857 - 1899)
+                          </p>
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <audio id="audio" src="artifactAudio/Spoliarium.mp3"></audio> 
                         </div>
                       </div>
+
                       <div>
-                        <p></p>
-                      </div>The Spoliarium, painted by Juan Luna in 1884, stands as one of the most powerful artworks in Philippine history. More than just a masterpiece, it serves as a compelling socio-economic critique of colonial oppression, social stratification, and the broader struggles of the Filipino people under Spanish rule.
+                        <p>
+                        Juan Luna’s monumental oil-on-canvas masterpiece, Spoliarium, was painted in 1884 in Rome and measures an imposing 4.22 m by 7.675 m, making it the largest painting in the Philippines.
+                        Luna completed the work after eight months of painstaking effort, drawing inspiration from a scene in Rome in the Time of Augustus by Charles Louis Dezobry, which described fallen gladiators lying in the coliseum’s basement—the “spoliarium”—where their weapons and garments were stripped away.
+                        </p>
+                      </div>
+                      
+                      <div style="position: relative; display: inline-block;">
+                        <img id="artImage" src="artifactImg/SpoliariumPainting.jpg" alt="Spoliarium Painting" style="height:400px; width:500px; object-fit:cover;">
+                      <!-- Fullscreen Button -->
+                        <button onclick="openFullscreen()" style="position: absolute; bottom: 10px; right: 10px; padding: 5px 10px;"> ⛶ Fullscreen
+                        </button>
+                      </div>
+
                     </div>`
         },
         {
@@ -65,21 +80,22 @@ var APP_DATA = {
           "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <video controls class="right-video" style="height: 200px; width: 300px;">
-                          <source src="artifactVid/2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
+                          <img  src="artifactImg/JuanLuna.png" alt="Bust of Juan Luna Novicio" style="height:300px; width:200px; object-fit:cover;">
                         </div>
                         <div class="text-content">
-                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <p class="title"><b>Bust of Juan Luna Novicio N</b></p>
+                          <p class="subTitle">
+                          ANASTACIO T. CAEDO <br> (1907 - 1990)
+                          </p>
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <audio id="audio" src="artifactAudio/BustJuanLuna.mp3"></audio> 
+                          <p>
+                          The sculptor Mariano Benlliure, a Spanish artist and close friend of Juan Luna, first modeled the bust in plaster after Luna’s big win at the Madrid Exposición Nacional de Bellas Artes with Spoliarium. It was meant as a personal tribute to Luna’s artistic genius.
+                          Caedo, born in Batangas, was known to create monuments and statues, including the seven life-size figures of General Douglas McArthur and his Companions at Palo, Leyte.
+                          </p>
                         </div>
-                      </div>
-                      <div>
-                        <p>The turnover ceremony celebrates the 101st anniversary of the time the Spaniards donated the sculpture to the Philippines on October 12, 1922, the 166th birth anniversary of Luna on October 25, and the Museums and Galleries Month.</p>
                       </div>
                     </div>`
         },
@@ -90,21 +106,23 @@ var APP_DATA = {
           "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <video controls class="right-video" style="height: 200px; width: 300px;">
-                          <source src="artifactVid/asgoreTruck.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
+                          <img  src="artifactImg/Halberds.png" alt="Philippine Halberds" style="height:300px; width:200px; object-fit:cover;">
                         </div>
                         <div class="text-content">
-                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <p class="title"><b>Haldbers of the Captains of the Philippines</b></p>
+                          <p class="subTitle">
+                          GIFTED BY: ARKANSAN STATE PARK <br> (1874 - 1898)
+                          </p>
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <audio id="audio" src="artifactAudio/Halberds.mp3"></audio>
+                          <p> Since around 1590, the Captain Generals of the Philippines (the chief governors during the Spanish colonial era) enjoyed the protection of a unique bodyguard unit known as the Alabarderos del Virrey, or halberdiers of the Viceroy/Captain General.
+                          </p>
                         </div>
                       </div>
                       <div>
-                        <p>Since 1590 the Captains General of the Philippines enjoyed the protection of a unique unit of bodyguards.  Known originally as the "Guardias de Alabarderos del Real Sello", by the 19th century they were styled simply as the "Guardias del Capitan general" or the "Cuerpo de Guardias Alabarderos."  Like the Spanish king's Royal Guards in Madrid and the Pope's Swiss Guard in Rome, these soldiers in Manila where one of the few units, in an age of increasingly effective modern firearms, that protected their charge armed principally with the medieval halberd and sword.  While their duties were largely ceremonial, giving the Captain General's office an air of regal power, they were still expected to protect the life of the Captain General against all threats.  At least two Alabaderos accompanied the Captain General at all times.  This custom was continued, at least once, during the early Philippine Republic as Emilio Aguinaldo is shown in photographs at his presidential inauguration escorted by two Filipino soldiers dress in uniforms similar to those of the Alabarderos, minus the royal Spanish insignia of course, and armed with halberd-like polearms.</p>
+                      <p>These guards, modeled after similar royal units like Spain’s Royal Guard or the Pope’s Swiss Guard, were among the rare military formations still equipped with medieval weapons—primarily the halberd, a long polearm combining spear and axe features—even as firearms became increasingly dominant<br><br>        </p>
                       </div>
                     </div>`
         },
@@ -116,21 +134,36 @@ var APP_DATA = {
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
                           <video controls class="right-video" style="height: 200px; width: 300px;">
-                          <source src="artifactVid/videoplayback.mp4" type="video/mp4">
+                          <source src="artifactVid/ElAsesinatoDelGobernadorBustamante.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
                         <div class="text-content">
-                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <p class="title"><b>El Asesinato Del Gobernador Bustamante</b></p>
+                          <p class="subTitle">
+                          FELIX RESURRECCION HILDAGO <br> (1855 - 1913)
+                          </p>
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <audio id="audio" src="artifactAudio/ElAsesinatoDelGobernadorBustamante.mp3"></audio>
                         </div>
                       </div>
                       <div>
-                        <p>**The Church against the States** by Juan Luna (1886) - Depicts the power struggle between religious and civil authorities in colonial Philippines, exposing how the Catholic Church wielded political influence to maintain control over Filipino society and resist governmental reforms that threatened ecclesiastical privileges.</p>
+                        <p>
+                        In 1719, Governor-General Fernando Manuel de Bustamante y Bustillo was assassinated in Manila under chaotic and politically charged circumstances. Renowned Filipino painter Félix Resurrección Hidalgo later immortalized this dark colonial moment in his painting titled El asesinato del Gobernador Bustamante, which is housed in the National Art Gallery of the National Museum of the Philippines.
+                        The artwork depicts a dramatic scene: a mob of Dominican friars dragging Bustamante down the palace stairs, embodying the tense relationship between the colonial government and the religious orders.
+                        </p>
                       </div>
+
+                      <div style="position: relative; display: inline-block;">
+                        <img id="artImage" src="artifactImg/ElAsesinatoDelGobernadorBustamante.jpg" alt="El Asesinato del Gobernador Bustamante Painting" style="height:400px; width:500px; object-fit:cover; cursor:pointer;">
+                        <!-- Fullscreen Button -->
+                        <button onclick="openFullscreen()" style="position: absolute; bottom: 10px; right: 10px; padding: 5px 10px;">
+                         Fullscreen
+                        </button>
+                      </div>
+
                     </div>`
         },
         {
@@ -140,21 +173,23 @@ var APP_DATA = {
           "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <video controls class="right-video" style="height: 200px; width: 300px;">
-                          <source src="artifactVid/asgoreTruck.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
+                          <img  src="artifactImg/MonumentArthurWalshFergusson.png" alt="Monument of Arthur Walsh Fergusson" style="height:300px; width:300px; object-fit:cover;">
                         </div>
                         <div class="text-content">
-                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <p class="title"><b>Monument of Arthur Walsh Fergusson</b></p>
+                          <p class="subTitle">
+                          MARIANO BENLLIURE Y GIL <br> (1862 - 1943)
+                          </p>
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <audio id="audio" src="artifactAudio/MonumentArthurWalshFergusson.mp3"></audio>
                         </div>
                       </div>
                       <div>
-                        <p>**Monument of Arthur Walsh Fergusson** by Isabelo Tampinco (1924) - Bronze sculpture honoring the British engineer who designed Manila's water system, representing both the modernization efforts in the American colonial period and the irony of commemorating foreign technical expertise while Filipino contributions remained unrecognized.</p>
+                        <p>
+                        The Monument of Arthur Walsh Fergusson, created in 1912 by Spanish sculptor Mariano Benlliure y Gil, honors the first Executive Secretary of the Philippines. Originally unveiled in 1913 at Plaza Fergusson, Ermita, it was damaged during the Battle of Manila in 1945 and later came under the care of the U.S. Embassy. Today, it is displayed at the National Museum of Fine Arts, notable as the only monument in the Philippines dedicated to an American figure.
+                        </p>
                       </div>
                     </div>`
         }
@@ -200,39 +235,44 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {
-          "yaw": 0.012202009724891383,
-          "pitch": -0.19652368002440568,
+          "yaw": -0.032202009724891383,
+          "pitch": -0.10652368002440568,
           "title": "The Old Session Hall of Senate of the Philippines",
           "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
                           <video controls class="right-video" style="height: 200px; width: 300px;">
-                          <source src="artifactVid/asgoreTruck.mp4" type="video/mp4">
+                          <source src="artifactVid/OldSessionHall.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
                         <div class="text-content">
-                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <p class="title"><b>The Old Session Hall of Senate of the Philippines</b></p>
+                          <p class="subTitle">
+                           (1934 - 1946)
+                          </p>
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <audio id="audio" src="artifactAudio/OldSessionHall.mp3"></audio> 
                         </div>
                       </div>
                       <div>
-                        <p>The Old Session Hall of Senate of the Philippines - Historic chamber where Filipino legislators once debated national policies, symbolizing both democratic aspirations and the limitations of self-governance under American colonial rule, where real power remained with foreign administrators.</p>
+                        <p>
+                        The Old Session Hall of Senate of the Philippines - Historic chamber where Filipino legislators once debated national policies, symbolizing both democratic aspirations and the limitations of self-governance under American colonial rule, where real power remained with foreign administrators.
+                        </p>
                       </div>
                     </div>`
         },
         {
-          "yaw": 3.0309542147034954,
+          "yaw": 3.0109542147034954,
           "pitch": -0.020559694206959023,
           "title": "Botong's Large Scale Painting",
           "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
                           <video controls class="right-video" style="height: 200px; width: 300px;">
-                          <source src="artifactVid/1.mp4" type="video/mp4">
+                          <source src="artifactVid/LargeScalePaintingBotong.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -241,7 +281,7 @@ var APP_DATA = {
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> 
                         </div>
                       </div>
                       <div>
