@@ -17,6 +17,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: var(--dark-color);
+  background: transparent !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,11 +63,15 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-brand {
   display: flex;
   align-items: center;
+  align-content: center;
 }
 
 .navbar-brand img {
-  filter: brightness(0) invert(1);
   opacity: 0.95;
+  border-radius: 80%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .brand-text {
@@ -154,8 +159,69 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
 }
 
-.hero-slide {
+.carousel-container {
+  position: relative;
+}
+
+.hero-carousel .carousel-inner {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-carousel .carousel-item {
   height: 600px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-carousel .carousel-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.carousel-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-prev {
+  left: 20px;
+}
+
+.carousel-nav-next {
+  right: 20px;
+}
+
+
+
+
+.hero-slide {
+  height: 580px;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -195,7 +261,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Quick Access Section */
 .quick-access {
-  background-color: #fff;
+  background: transparent !important;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   margin-top: -30px;
   position: relative;
@@ -206,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   transition: transform 0.3s;
   cursor: pointer;
-  background-color: #fff;
+  background: transparent !important;
   border-radius: 8px;
 }
 
@@ -341,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Museums Section */
 .museums-section {
-  background-color: #fff;
+  background: transparent !important;
 }
 
 .museum-card {
@@ -418,6 +484,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   transition: all 0.3s;
+  background: transparent !important;
 }
 
 .news-card:hover {
@@ -475,13 +542,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Event Items */
 .event-item {
   padding: 15px;
-  background-color: #f8f9fa;
+  background: transparent !important;
   border-radius: 8px;
   transition: all 0.3s;
 }
 
 .event-item:hover {
-  background-color: #e9ecef;
+  background: rgba(0,0,0,0.05) !important;
 }
 
 .date-box {
@@ -545,7 +612,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-brand img {
-  filter: brightness(0) invert(1);
 }
 
 .social-footer-icon {
@@ -611,7 +677,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .hero-slide {
-    height: 400px;
+    height: 100vh;
   }
   
   .hero-content h1 {

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Navbar, Nav, Container, Row, Col, Button, Carousel} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./NationalMuseumStyle.css";
 
 const NationalMuseumStyle = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const carouselRef = useRef(null);
 
   return (
     <div>
@@ -13,10 +14,10 @@ const NationalMuseumStyle = () => {
         <Container>
           <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/National_Museum_of_the_Philippines_logo.svg/1200px-National_Museum_of_the_Philippines_logo.svg.png"
-              alt="Museum Fine Art Logo"
+              src="/tour/img/NationalMuseumPHLogo.jpeg"
               height="60"
-              className="me-3"
+              width="60"
+              className="d-inline-block align-top"
             />
             <div>
               <div className="brand-text">MUSEUM OF THE</div>
@@ -24,7 +25,7 @@ const NationalMuseumStyle = () => {
             </div>
           </Navbar.Brand>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="mx-auto">
               <Nav.Link as={Link} to="/" className="mx-2 nav-link-custom">HOME</Nav.Link>
               <Nav.Link href="/tour/index.html" className="mx-2 nav-link-custom">360 VIRTUAL TOUR</Nav.Link>
               <Nav.Link href="#about" className="mx-2 nav-link-custom">ABOUT</Nav.Link>
@@ -34,24 +35,61 @@ const NationalMuseumStyle = () => {
       </Navbar>
 
       {/* Hero Carousel */}
-      <Carousel className="hero-carousel" fade>
-        <Carousel.Item>
-          <div
-            className="hero-slide"
-            style={{
-              backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://nationalmuseum.gov.ph/wp-content/uploads/2023/06/NMFineArts-Building-scaled.jpg')",
-            }}
-          >
-            <div className="hero-content">
-              <h1 className="display-3 fw-bold mb-3 text-shadow">NatioMuse V-Tour</h1>
-              <p className="lead mb-4">Home to the National Art Collections</p>
-              <div className="hero-buttons">
-                <Button href="/tour/index.html" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>
+      <div className="carousel-container">
+        <Carousel className="hero-carousel" controls={false} ref={carouselRef}>
+          <Carousel.Item>
+            <div
+              className="hero-slide"
+              style={{
+                backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('/tour/img/FineArtsMuseum.PNG')",
+              }}
+            >
+              <div className="hero-content">
+                <h1 className="display-3 fw-bold mb-3 text-shadow">Fine Arts Virtual Tour</h1>
+                <p className="lead mb-4">Home to the National Art Collections</p>
+                <div className="hero-buttons">
+                  <Button href="/tour/index.html" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>
+                </div>
               </div>
             </div>
-          </div>
-        </Carousel.Item>
-      </Carousel>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <div
+              className="hero-slide"
+              style={{
+                backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('/tour/img/SpoliariumHall.PNG')",
+              }}
+            >
+              <div className="hero-content">
+                <h1 className="display-3 fw-bold mb-3 text-shadow">Discover Philippine Art Heritage</h1>
+                <p className="lead mb-4">Explore the Rich Cultural Collections</p>
+                <div className="hero-buttons">
+                  <Button href="/tour/index.html" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>
+                </div>
+              </div>
+            </div>
+          </Carousel.Item>
+        </Carousel>
+
+        {/* Custom Navigation Buttons */}
+        <Button
+          className="carousel-nav-btn carousel-nav-prev"
+          onClick={() => carouselRef.current?.prev()}
+          variant="outline-light"
+          size="lg"
+        >
+          <i className="bi bi-chevron-left"></i>
+        </Button>
+        <Button
+          className="carousel-nav-btn carousel-nav-next"
+          onClick={() => carouselRef.current?.next()}
+          variant="outline-light"
+          size="lg"
+        >
+          <i className="bi bi-chevron-right"></i>
+        </Button>
+      </div>
 
       {/* Virtual Tours CTA */}
       <section className="virtual-tours-cta py-5">
@@ -72,7 +110,7 @@ const NationalMuseumStyle = () => {
               <Col lg={4} className="mb-4">
                 <div className="footer-brand mb-4">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/National_Museum_of_the_Philippines_logo.svg/1200px-National_Museum_of_the_Philippines_logo.svg.png"
+                    src="/tour/img/NationalMuseumPHLogo.jpeg"
                     alt="Museum Fine Art Logo"
                     height="50"
                     className="mb-3"
@@ -84,12 +122,6 @@ const NationalMuseumStyle = () => {
                   of cultural heritage and natural history, and carries out permanent research programs in 
                   biodiversity, geological history, and cultural heritage.
                 </p>
-                <div className="social-links mt-4">
-                  <a href="#" className="social-footer-icon"><i className="bi bi-facebook"></i></a>
-                  <a href="#" className="social-footer-icon"><i className="bi bi-twitter"></i></a>
-                  <a href="#" className="social-footer-icon"><i className="bi bi-instagram"></i></a>
-                  <a href="#" className="social-footer-icon"><i className="bi bi-youtube"></i></a>
-                </div>
               </Col>
               <Col lg={2} md={6} className="mb-4">
                 <h6 className="text-white mb-3">Quick Links</h6>
@@ -107,14 +139,14 @@ const NationalMuseumStyle = () => {
             <Row className="py-3">
               <Col md={6}>
                 <p className="mb-0 text-white-50">
-                  Made by CSC6 
+                  Made by CSC6 *For Education Purposes
                     /  © {new Date().getFullYear()} National Museum of the Philippines. All Rights Reserved.
                 </p>
               </Col>
               <Col md={6} className="text-md-end">
                 <a href="#" className="footer-link me-3">Privacy Policy</a>
+                <a> | </a>
                 <a href="#" className="footer-link me-3">Terms of Use</a>
-                <a href="#" className="footer-link">Sitemap</a>
               </Col>
             </Row>
           </Container>
