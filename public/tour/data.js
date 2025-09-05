@@ -75,7 +75,7 @@ var APP_DATA = {
         },
         {
           "yaw": 1.5449345061562152,
-          "pitch": 0.2773967562384634,
+          "pitch": 0.0773967562384634,
           "title": "Bust of Juan Luna Y. Novicio",
           "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
@@ -167,8 +167,8 @@ var APP_DATA = {
                     </div>`
         },
         {
-          "yaw": -1.5902451651988692,
-          "pitch": 0.04089851312854442,
+          "yaw": -1.6002451651988692,
+          "pitch": -0.04089851312854442,
           "title": "Monument of Arthur Walsh Fergusson",
           "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">

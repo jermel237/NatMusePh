@@ -118,9 +118,7 @@ const NationalMuseumStyle = () => {
                   <h5 className="text-white">Museum of the Fine Arts Philippines</h5>
                 </div>
                 <p className="text-white-50">
-                  The National Museum manages and develops the national reference collections in the areas 
-                  of cultural heritage and natural history, and carries out permanent research programs in 
-                  biodiversity, geological history, and cultural heritage.
+                  DISCLAIMER: All resources, materials, and references used in this project are intended for educational purposes only. This project does not claim ownership of any third-party content and does not intend to infringe upon any copyright or intellectual property rights. All credits and rights remain with their respective owners.
                 </p>
               </Col>
               <Col lg={2} md={6} className="mb-4">
