@@ -277,15 +277,20 @@ var APP_DATA = {
                           </video>
                         </div>
                         <div class="text-content">
-                          <p>Introduction here Year, Artist Name, Art Name</p>
+                          <p class="title"><b>Botong's Large Scale Painting</b></p>
+                          <p class="subTitle">
+                           CARLOS V. FRANCISCO <br> (1912 - 1969)
+                          </p>
                           <button id="playAudio" class="audio-button">
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
-                          <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> 
+                          <audio id="audio" src="artifactAudio/BotongLarge Scale.mp3"></audio> 
                         </div>
                       </div>
                       <div>
-                        <p>Botong's Large Scale Painting - Carlos "Botong" Francisco's monumental works celebrating Filipino history and culture, using indigenous visual narratives to counter colonial artistic traditions and assert national identity through epic storytelling.</p>
+                        <p>
+                        Botong's Large Scale Painting - Carlos "Botong" Francisco's monumental works celebrating Filipino history and culture, using indigenous visual narratives to counter colonial artistic traditions and assert national identity through epic storytelling.
+                        </p>
                       </div>
                     </div>`
         }
