@@ -45,7 +45,7 @@ const NationalMuseumStyle = () => {
               }}
             >
               <div className="hero-content">
-                <h1 className="display-3 fw-bold mb-3 text-shadow">Fine Arts Virtual Tour</h1>
+                <h1 className="display-3 fw-bold mb-3 text-shadow">Museum of Fine Arts Virtual Tour</h1>
                 <p className="lead mb-4">Home to the National Art Collections</p>
                 <div className="hero-buttons">
                   <Button href="/tour/index.html" variant="primary" size="lg" className="fw-bold me-3">Start using the 360 Virtual Tour</Button>
@@ -96,8 +96,8 @@ const NationalMuseumStyle = () => {
         <Container>
           <div className="cta-content text-center text-white">
             <h2 className="display-5 fw-bold mb-3">Can't Visit In Person?</h2>
-            <p className="lead mb-4">Take a virtual tour of our museums from anywhere in the world</p>
-            <Button as={Link} to="/virtual-tour" variant="light" size="lg" className="me-3">Start Virtual Tour</Button>
+            <p className="lead mb-4">Take a virtual tour of the National Museum of Fine Arts from anywhere in your device!</p>
+            <Button href="/tour/index.html" variant="light" size="lg" className="me-3">Start Virtual Tour</Button>
           </div>
         </Container>
       </section>
@@ -121,14 +121,7 @@ const NationalMuseumStyle = () => {
                   DISCLAIMER: All resources, materials, and references used in this project are intended for educational purposes only. This project does not claim ownership of any third-party content and does not intend to infringe upon any copyright or intellectual property rights. All credits and rights remain with their respective owners.
                 </p>
               </Col>
-              <Col lg={2} md={6} className="mb-4">
-                <h6 className="text-white mb-3">Quick Links</h6>
-                <ul className="list-unstyled footer-links">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Collections</a></li>
-                </ul>
-              </Col>
-              
+              <br></br>
             </Row>
           </Container>
         </div>
