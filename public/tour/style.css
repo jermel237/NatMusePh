@@ -607,6 +607,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   display: inline-block;
   vertical-align: middle;
   line-height: 1.5;
+  font-weight: bold;
+  font-size: 16px;
 
   -moz-user-select: text;
   -webkit-user-select: text;

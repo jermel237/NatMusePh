@@ -36,7 +36,7 @@ var APP_DATA = {
         {
           "yaw": -0.5656561021033006,
           "pitch": -0.3423938244017002,
-          "title": "Spolarium Painting <br>by JUAN LUNA Y. NOVICIO",
+          "title": "Spolarium Painting",
           "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
@@ -64,7 +64,9 @@ var APP_DATA = {
 
                       <div>
                         <p>
-                        Juan Luna’s monumental oil-on-canvas masterpiece, Spoliarium, was painted in 1884 in Rome and measures an imposing 4.22 m by 7.675 m, making it the largest painting in the Philippines.
+                        Juan Luna’s monumental oil-on-canvas masterpiece, Spoliarium, was painted in 1884 in Rome and measures an imposing 4.22 m by 7.675 m, making it the largest painting in the Philippines. 
+                        </p>
+                        <p>
                         Luna completed the work after eight months of painstaking effort, drawing inspiration from a scene in Rome in the Time of Augustus by Charles Louis Dezobry, which described fallen gladiators lying in the coliseum’s basement—the “spoliarium”—where their weapons and garments were stripped away.
                         </p>
                       </div>
@@ -79,10 +81,10 @@ var APP_DATA = {
           "yaw": 1.5449345061562152,
           "pitch": 0.0773967562384634,
           "title": "Bust of Juan Luna Y. Novicio",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <img  src="artifactImg/JuanLuna.png" alt="Bust of Juan Luna Novicio" style="height:300px; width:200px; object-fit:cover;">
+                          <img  src="artifactImg/JuanLuna.png" alt="Bust of Juan Luna Novicio" style="height:400px; width:300px; object-fit:cover;">
                         </div>
                         <div class="text-content">
                           <p class="title"><b>Bust of Juan Luna Novicio N</b></p>
@@ -94,7 +96,8 @@ var APP_DATA = {
                           </button>
                           <audio id="audio" src="artifactAudio/BustJuanLuna.mp3"></audio> 
                           <p>
-                          The sculptor Mariano Benlliure, a Spanish artist and close friend of Juan Luna, first modeled the bust in plaster after Luna’s big win at the Madrid Exposición Nacional de Bellas Artes with Spoliarium. It was meant as a personal tribute to Luna’s artistic genius.
+                          The sculptor Mariano Benlliure, a Spanish artist and close friend of Juan Luna, first modeled the bust in plaster after Luna’s big win at the Madrid Exposición Nacional de Bellas Artes with Spoliarium.
+                          It was meant as a personal tribute to Luna’s artistic genius.
                           Caedo, born in Batangas, was known to create monuments and statues, including the seven life-size figures of General Douglas McArthur and his Companions at Palo, Leyte.
                           </p>
                         </div>
@@ -105,10 +108,10 @@ var APP_DATA = {
           "yaw": 1.7708602364705728,
           "pitch": -0.08095404782790006,
           "title": "Halberds of the Captains of the Philippines",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <img  src="artifactImg/Halberds.png" alt="Philippine Halberds" style="height:300px; width:200px; object-fit:cover;">
+                          <img  src="artifactImg/Halberds.png" alt="Philippine Halberds" style="height:auto; width:200px; object-fit:cover;">
                         </div>
                         <div class="text-content">
                           <p class="title"><b>Haldbers of the Captains of the Philippines</b></p>
@@ -132,10 +135,10 @@ var APP_DATA = {
           "yaw": 2.834142029796035,
           "pitch": -1.0464504640594896e-7,
           "title": "The Church against the States",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <video controls class="right-video" style="height: 200px; width: 300px;">
+                          <video controls class="right-video" style="height: 350px; width: 450px;">
                           <source src="artifactVid/ElAsesinatoDelGobernadorBustamante.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
@@ -149,6 +152,11 @@ var APP_DATA = {
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
                           <audio id="audio" src="artifactAudio/ElAsesinatoDelGobernadorBustamante.mp3"></audio>
+                          <p class="video-source">
+                            Source: <a href="https://www.tiktok.com/@artsgeekmanila/video/7540121394978229511" target="_blank">
+                            El Asesinato Del Gobernador Bustamante - Arts Geek Manila
+                                    </a>
+                          </p>
                         </div>
                       </div>
                       <div>
@@ -158,24 +166,19 @@ var APP_DATA = {
                         </p>
                       </div>
 
-                      <div style="position: relative; display: inline-block;">
-                        <img id="artImage" src="artifactImg/ElAsesinatoDelGobernadorBustamante.jpg" alt="El Asesinato del Gobernador Bustamante Painting" style="height:400px; width:500px; object-fit:cover; cursor:pointer;">
-                        <!-- Fullscreen Button -->
-                        <button onclick="openFullscreen()" style="position: absolute; bottom: 10px; right: 10px; padding: 5px 10px;">
-                         Fullscreen
-                        </button>
+                      <div style="position: relative; display: block; margin: 0 auto;">
+                        <img id="artImage" src="artifactImg/ElAsesinatoDelGobernadorBustamante.jpg" alt="El Asesinato del Gobernador Bustamante Painting" style="height:700px; width:400px; object-fit:cover;">
                       </div>
-
                     </div>`
         },
         {
           "yaw": -1.6002451651988692,
           "pitch": -0.04089851312854442,
           "title": "Monument of Arthur Walsh Fergusson",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <img  src="artifactImg/MonumentArthurWalshFergusson.png" alt="Monument of Arthur Walsh Fergusson" style="height:300px; width:300px; object-fit:cover;">
+                          <img  src="artifactImg/MonumentArthurWalshFergusson.png" alt="Monument of Arthur Walsh Fergusson" style="height:400px; width:400px; object-fit:cover;">
                         </div>
                         <div class="text-content">
                           <p class="title"><b>Monument of Arthur Walsh Fergusson</b></p>
@@ -240,10 +243,10 @@ var APP_DATA = {
           "yaw": -0.032202009724891383,
           "pitch": -0.10652368002440568,
           "title": "The Old Session Hall of Senate of the Philippines",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <video controls class="right-video" style="height: 200px; width: 300px;">
+                          <video controls class="right-video" style="height: 300px; width: 400px;">
                           <source src="artifactVid/OldSessionHall.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
@@ -257,6 +260,11 @@ var APP_DATA = {
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
                           <audio id="audio" src="artifactAudio/OldSessionHall.mp3"></audio> 
+                          <p class="video-source">
+                            Source: <a href="https://www.tiktok.com/@artsgeekmanila/video/7540121394978229511" target="_blank">
+                            Old Session Hall - Politikalon | JR Lopez Gonzales
+                                    </a>
+                          </p>
                         </div>
                       </div>
                       <div>
@@ -270,10 +278,10 @@ var APP_DATA = {
           "yaw": 3.0109542147034954,
           "pitch": -0.020559694206959023,
           "title": "Botong's Large Scale Painting",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <video controls class="right-video" style="height: 200px; width: 300px;">
+                          <video controls class="right-video" style="height: 300px; width: 400px;">
                           <source src="artifactVid/LargeScalePaintingBotong.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
@@ -287,6 +295,11 @@ var APP_DATA = {
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
                           <audio id="audio" src="artifactAudio/BotongLarge Scale.mp3"></audio> 
+                          <p class="video-source">
+                            Source: <a href="https://www.tiktok.com/@artsgeekmanila/video/7540121394978229511" target="_blank">
+                            Botong Large Scale Painting - Ayala Museum Reviews
+                                    </a>
+                          </p>
                         </div>
                       </div>
                       <div>
@@ -341,7 +354,7 @@ var APP_DATA = {
           "yaw": -1.3604167426396199,
           "pitch": -0.1034881672228174,
           "title": "San Emigdio",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
                           <video controls class="right-video" style="height: 200px; width: 300px;">
@@ -355,6 +368,11 @@ var APP_DATA = {
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
                           <audio id="audio" src="artifactAudio/Bergentrückung.mp3"></audio> //NOTICE:REMOVE THE SAMPLE MP3 & MP4
+                          <p class="video-source">
+                            Source: <a href="https://www.tiktok.com/@artsgeekmanila/video/7540121394978229511" target="_blank">
+                            Santo Domingo Painting - OldHistory of the Philippines | Tiktok
+                                    </a>
+                          </p>
                         </div>
                       </div>
                       <div>
