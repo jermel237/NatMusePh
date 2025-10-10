@@ -33,6 +33,43 @@
     }
   });
 
+  // View Direction Control Panel logic (after viewer/scenes are ready)
+  setTimeout(function() {
+    var panel = document.getElementById('viewControlPanel');
+    if (panel && window.viewer) {
+      var buttons = panel.querySelectorAll('.view-btn');
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var deg = parseInt(btn.getAttribute('data-deg'), 10);
+          var rad = deg * Math.PI / 180;
+          var currentScene = window.viewer.scene();
+          if (currentScene && currentScene.view) {
+            var params = currentScene.view.parameters();
+            // Animate autorotate to target yaw
+            var startYaw = params.yaw;
+            var targetYaw = rad;
+            var duration = 1200; // ms
+            var startTime = null;
+            function animateYaw(ts) {
+              if (!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var newYaw = startYaw + (targetYaw - startYaw) * progress;
+              currentScene.view.setParameters({
+                yaw: newYaw,
+                pitch: params.pitch,
+                fov: params.fov
+              });
+              if (progress < 1) {
+                requestAnimationFrame(animateYaw);
+              }
+            }
+            requestAnimationFrame(animateYaw);
+          }
+        });
+      });
+    }
+  }, 500);
+
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
   var screenfull = window.screenfull;
@@ -86,6 +123,62 @@
 
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+  window.viewer = viewer;
+
+  // ADD THIS: Rotation control functions for Front, Right, Back, Left buttons
+  window.moveRelative = function(direction) {
+    var currentScene = viewer.scene();
+    if (!currentScene) return;
+    
+    var view = currentScene.view();
+    if (!view) return;
+    
+    var params = view.parameters();
+    var targetYaw;
+    
+    switch(direction) {
+      case 'front':
+        targetYaw = 0;
+        break;
+      case 'right':
+        targetYaw = Math.PI / 2; // 90 degrees
+        break;
+      case 'back':
+        targetYaw = Math.PI; // 180 degrees
+        break;
+      case 'left':
+        targetYaw = -Math.PI / 2; // -90 degrees (or 270)
+        break;
+      default:
+        return;
+    }
+    
+    // Animate rotation
+    var startYaw = params.yaw;
+    var duration = 1200; // milliseconds
+    var startTime = null;
+    
+    function animateYaw(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      
+      // Smooth easing
+      var easeProgress = progress * progress * (3 - 2 * progress);
+      
+      var newYaw = startYaw + (targetYaw - startYaw) * easeProgress;
+      view.setParameters({
+        yaw: newYaw,
+        pitch: params.pitch,
+        fov: params.fov
+      });
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateYaw);
+      }
+    }
+    
+    requestAnimationFrame(animateYaw);
+  };
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
@@ -219,6 +312,38 @@
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
+    
+      // Re-attach direction button listeners for the new active scene
+      var panel = document.getElementById('viewControlPanel');
+      if (panel) {
+        var buttons = panel.querySelectorAll('.view-btn');
+        buttons.forEach(function(btn) {
+          btn.onclick = function() {
+            var deg = parseInt(btn.getAttribute('data-deg'), 10);
+            var rad = deg * Math.PI / 180;
+            var params = scene.view.parameters();
+            // Animate yaw
+            var startYaw = params.yaw;
+            var targetYaw = rad;
+            var duration = 1200;
+            var startTime = null;
+            function animateYaw(ts) {
+              if (!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var newYaw = startYaw + (targetYaw - startYaw) * progress;
+              scene.view.setParameters({
+                yaw: newYaw,
+                pitch: params.pitch,
+                fov: params.fov
+              });
+              if (progress < 1) {
+                requestAnimationFrame(animateYaw);
+              }
+            }
+            requestAnimationFrame(animateYaw);
+          };
+        });
+      }
   }
 
   function updateSceneName(scene) {
@@ -573,4 +698,3 @@ const currentScene = scenes.find(scene =>
       img.style.objectFit = "cover"; // back to normal
     }
   });
-
