@@ -503,29 +503,96 @@
     wrapper.appendChild(header);
     wrapper.appendChild(text);
 
-    // Create a modal for the hotspot content to appear on mobile mode.
+    // Create a full-screen modal wrapper
     var modal = document.createElement('div');
-    modal.innerHTML = wrapper.innerHTML;
     modal.classList.add('info-hotspot-modal');
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    modal.style.zIndex = '10000';
+    modal.style.overflow = 'auto';
+    modal.style.padding = '20px';
+    modal.style.boxSizing = 'border-box';
+
+    // Create content container
+    var modalContent = document.createElement('div');
+    modalContent.classList.add('info-hotspot-modal-content');
+    modalContent.style.backgroundColor = '#222';
+    modalContent.style.color = '#fff';
+    modalContent.style.borderRadius = '8px';
+    modalContent.style.padding = '20px';
+    modalContent.style.maxWidth = '800px';
+    modalContent.style.margin = '40px auto';
+    modalContent.style.position = 'relative';
+
+    // Add close button
+    var modalCloseWrapper = document.createElement('div');
+    modalCloseWrapper.classList.add('info-hotspot-close-wrapper');
+    modalCloseWrapper.style.position = 'absolute';
+    modalCloseWrapper.style.top = '10px';
+    modalCloseWrapper.style.right = '10px';
+    modalCloseWrapper.style.cursor = 'pointer';
+    var modalCloseIcon = document.createElement('img');
+    modalCloseIcon.src = 'img/close.png';
+    modalCloseIcon.classList.add('info-hotspot-close-icon');
+    modalCloseWrapper.appendChild(modalCloseIcon);
+
+    modalContent.appendChild(modalCloseWrapper);
+
+    // Add share button
+    var modalShareWrapper = document.createElement('div');
+    modalShareWrapper.classList.add('info-hotspot-share-wrapper');
+    modalShareWrapper.style.position = 'absolute';
+    modalShareWrapper.style.top = '10px';
+    modalShareWrapper.style.right = '60px';
+    modalShareWrapper.style.cursor = 'pointer';
+    var modalShareIcon = document.createElement('img');
+    modalShareIcon.src = 'img/share.png';
+    modalShareIcon.classList.add('info-hotspot-share-icon');
+    modalShareWrapper.appendChild(modalShareIcon);
+
+    modalContent.appendChild(modalShareWrapper);
+
+    modalShareWrapper.addEventListener('click', function(e) {
+      e.stopPropagation();
+      createShareLink(hotspot);
+    });
+
+    // Add title and text
+    var modalTitle = document.createElement('div');
+    modalTitle.classList.add('info-hotspot-title');
+    modalTitle.style.fontSize = '1.5em';
+    modalTitle.style.fontWeight = 'bold';
+    modalTitle.style.marginBottom = '10px';
+    modalTitle.innerHTML = hotspot.title;
+
+    var modalText = document.createElement('div');
+    modalText.classList.add('info-hotspot-text');
+    modalText.innerHTML = hotspot.text;
+
+    modalContent.appendChild(modalTitle);
+    modalContent.appendChild(modalText);
+
+    modal.appendChild(modalContent);
     document.body.appendChild(modal);
 
+    // Close modal when clicking outside the content
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        toggle();
+      }
+    });
+
     var toggle = function() {
-      wrapper.classList.toggle('visible');
       modal.classList.toggle('visible');
     };
 
-    // Show content when hotspot is clicked and display share button
+    // Show content when hotspot is clicked
     wrapper.querySelector('.info-hotspot-header').addEventListener('click', function() {
-      const isVisible = wrapper.classList.contains('visible');
       toggle();
-      
-      if (!isVisible) {
-        // Opening the hotspot - show share button
-        shareWrapper.style.display = 'inline-block';
-      } else {
-        // Closing the hotspot - hide share button
-        shareWrapper.style.display = 'none';
-      }
     });
 
 
@@ -674,16 +741,10 @@ const currentScene = scenes.find(scene =>
 
 
   function openFullscreen() {
-    const img = document.getElementById("artImage");
+  const img = document.getElementById('artImage');
+  img.classList.add('fullscreen-image');
+}
 
-    if (img.requestFullscreen) {
-      img.requestFullscreen();
-    } else if (img.webkitRequestFullscreen) { // Safari
-      img.webkitRequestFullscreen();
-    } else if (img.msRequestFullscreen) { // IE/Edge
-      img.msRequestFullscreen();
-    }
-  }
 
   // Optional: adjust styling when in fullscreen
   document.addEventListener("fullscreenchange", () => {
