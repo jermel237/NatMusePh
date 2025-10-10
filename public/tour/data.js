@@ -36,17 +36,17 @@ var APP_DATA = {
         {
           "yaw": -0.5656561021033006,
           "pitch": -0.3423938244017002,
-          "title": "Spolarium Painting",
-          "text": `<div class="image-text-container" style="height: 400px; width: 500px; display: flex; flex-direction: column !important;">
+          "title": "Spolarium Painting <br>by JUAN LUNA Y. NOVICIO",
+          "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
                         <div class="image-content">
-                          <video controls class="right-video" style="height: 200px; width: 300px;">
+                          <video controls class="right-video" style="height: 350px; width: 500px;">
                           <source src="artifactVid/SpoliariumVid.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
                         <div class="text-content">
-                          <p class="title"><b>Spoliarium Painting N</b></p>
+                          <p class="title"><b>Spoliarium Painting</b></p>
                           <p class="subTitle">
                           JUAN LUNA Y. NOVICIO <br> (1857 - 1899)
                           </p>
@@ -54,6 +54,11 @@ var APP_DATA = {
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
                           <audio id="audio" src="artifactAudio/Spoliarium.mp3"></audio> 
+                          <p class="video-source">
+                            Source: <a href="https://youtu.be/6D9X_7SRxAg?si=E0gO0iRa-C4rdHSr" target="_blank">
+                            Spoliarium - Shawn Grenier | The Canvas
+                                    </a>
+                          </p>
                         </div>
                       </div>
 
@@ -65,10 +70,7 @@ var APP_DATA = {
                       </div>
                       
                       <div style="position: relative; display: inline-block;">
-                        <img id="artImage" src="artifactImg/SpoliariumPainting.jpg" alt="Spoliarium Painting" style="height:400px; width:500px; object-fit:cover;">
-                      <!-- Fullscreen Button -->
-                        <button onclick="openFullscreen()" style="position: absolute; bottom: 10px; right: 10px; padding: 5px 10px;"> ⛶ Fullscreen
-                        </button>
+                        <img id="artImage" src="artifactImg/SpoliariumPainting.jpg" alt="Spoliarium Painting" style="height:400px; width:750px; object-fit:cover;">
                       </div>
 
                     </div>`
