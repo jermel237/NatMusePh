@@ -73,7 +73,19 @@ a, a:hover, a:active, a:visited {
   height: 100%;
   overflow: hidden;
 }
+/* Add to your CSS file */
+#pano.zooming {
+  transition: filter 0.3s ease-out;
+}
 
+#pano.zooming canvas {
+  filter: blur(0px);
+}
+
+/* Optional: Add motion blur at peak zoom */
+#pano.zooming.peak-zoom canvas {
+  filter: blur(2px);
+}
 #titleBar {
   position: absolute;
   top: 0;

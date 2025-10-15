@@ -307,6 +307,7 @@
       };
     }
     
+    
     scene.view.setParameters(viewParameters);
     scene.scene.switchTo();
     startAutorotate();
@@ -418,10 +419,104 @@
       icon.style[property] = 'rotate(' + hotspot.rotation + 'rad)';
     }
 
-    // Add click event handler.
-    wrapper.addEventListener('click', function() {
-      switchScene(findSceneById(hotspot.target));
-    });
+// Add click event handler.
+wrapper.addEventListener('click', function() {
+  var currentScene = viewer.scene();
+  var view = currentScene.view();
+  var currentParams = view.parameters();
+  var panoElement = document.querySelector('#pano');
+  var container = panoElement.parentElement;
+  
+  // Animation parameters
+  var panDuration = 1000; // 1 second to pan to hotspot
+  var zoomDuration = 1800; // 1.8 seconds for zoom
+  var superBlurDuration = 200; // 0.2 seconds for super blur
+  var totalDuration = panDuration + zoomDuration + superBlurDuration; // 3 seconds total
+  var startTime = null;
+  
+  // Starting values
+  var startYaw = currentParams.yaw;
+  var startPitch = currentParams.pitch;
+  
+  // Target values for panning
+  var targetYaw = hotspot.yaw;
+  var targetPitch = hotspot.pitch;
+  
+  function animateTransition(timestamp) {
+    if (!startTime) startTime = timestamp;
+    var elapsed = timestamp - startTime;
+    var totalProgress = Math.min(elapsed / totalDuration, 1);
+    
+    // Phase 1: Pan to hotspot (first 1 second)
+    if (elapsed < panDuration) {
+      var panProgress = elapsed / panDuration;
+      // Use linear easing for panning
+      var newYaw = startYaw + (targetYaw - startYaw) * panProgress;
+      var newPitch = startPitch + (targetPitch - startPitch) * panProgress;
+      
+      view.setParameters({
+        yaw: newYaw,
+        pitch: newPitch,
+        fov: currentParams.fov // Keep same FOV during pan
+      });
+    } 
+    // Phase 2: Zoom 3x with blur (next 1.8 seconds)
+    else if (elapsed < panDuration + zoomDuration) {
+      var zoomProgress = (elapsed - panDuration) / zoomDuration;
+      
+      // Apply CSS transform for fake zoom - from 1x to 3x
+      var zoomScale = 1 + (zoomProgress * 2); // Linear scale from 1x to 3x
+      container.style.transition = 'transform ' + zoomDuration + 'ms linear, filter ' + zoomDuration + 'ms linear';
+      container.style.transform = 'scale(' + zoomScale + ')';
+      
+      // Add blur effect at extreme zoom levels
+      if (zoomProgress > 0.7) {
+        var blurAmount = (zoomProgress - 0.7) * 10; // 0 to 3px blur
+        container.style.filter = 'blur(' + blurAmount + 'px)';
+      }
+      
+      // Keep view locked on target during zoom
+      view.setParameters({
+        yaw: targetYaw,
+        pitch: targetPitch,
+        fov: currentParams.fov
+      });
+    }
+    // Phase 3: Super blur before switching (last 0.2 seconds)
+    else {
+      var blurProgress = (elapsed - panDuration - zoomDuration) / superBlurDuration;
+      
+      // Apply super blur effect - from 3px to 15px blur
+      var superBlurAmount = 3 + (blurProgress * 12); // 3px to 15px blur
+      container.style.filter = 'blur(' + superBlurAmount + 'px) brightness(0.8)';
+      
+      // Keep view locked on target
+      view.setParameters({
+        yaw: targetYaw,
+        pitch: targetPitch,
+        fov: currentParams.fov
+      });
+    }
+    
+    if (totalProgress < 1) {
+      requestAnimationFrame(animateTransition);
+    } else {
+      // Switch scene after animation
+      setTimeout(function() {
+        switchScene(findSceneById(hotspot.target));
+        
+        // Reset zoom and filter
+        setTimeout(function() {
+          container.style.transform = 'scale(1)';
+          container.style.filter = 'none';
+          container.style.transition = '';
+        }, 100);
+      }, 100);
+    }
+  }
+  
+  requestAnimationFrame(animateTransition);
+});
 
     // Prevent touch and scroll events from reaching the parent element.
     // This prevents the view control logic from interfering with the hotspot.
