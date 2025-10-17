@@ -38,30 +38,19 @@ var APP_DATA = {
           "pitch": -0.3423938244017002,
           "title": "Spolarium Painting",
           "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
-                      <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
-                        <div class="image-content">
-                          <video controls class="right-video" style="height: 350px; width: 500px;">
-                          <source src="artifactVid/SpoliariumVid.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                        <div class="text-content">
-                          <p class="title"><b>Spoliarium Painting</b></p>
-                          <p class="subTitle">
-                          JUAN LUNA Y. NOVICIO <br> (1857 - 1899)
-                          </p>
-                          <button id="playAudio" class="audio-button">
-                            <img src="img/play.png" alt="Play Audio" />
-                          </button>
-                          <audio id="audio" src="artifactAudio/Spoliarium.mp3"></audio> 
-                          <p class="video-source">
-                            Source: <a href="https://youtu.be/6D9X_7SRxAg?si=E0gO0iRa-C4rdHSr" target="_blank">
-                            Spoliarium - Shawn Grenier | The Canvas
-                                    </a>
-                          </p>
-                        </div>
+                      <div style="position: relative; display: inline-block;">
+                        <img id="artImage" src="artifactImg/SpoliariumPainting.jpg" alt="Spoliarium Painting" style="height:400px; width:750px; object-fit:cover;">
                       </div>
-
+                      <div class="text-content">
+                        <p class="title"><b>Spoliarium Painting</b></p>
+                        <p class="subTitle">
+                          JUAN LUNA Y. NOVICIO <br> (1857 - 1899)
+                        </p>
+                        <button id="playAudio" class="audio-button">
+                            <img src="img/play.png" alt="Play Audio" />
+                        </button>
+                        <audio id="audio" src="artifactAudio/Spoliarium.mp3"></audio> 
+                      </div>
                       <div>
                         <p>
                         Juan Luna’s monumental oil-on-canvas masterpiece, Spoliarium, was painted in 1884 in Rome and measures an imposing 4.22 m by 7.675 m, making it the largest painting in the Philippines. 
@@ -70,10 +59,20 @@ var APP_DATA = {
                         Luna completed the work after eight months of painstaking effort, drawing inspiration from a scene in Rome in the Time of Augustus by Charles Louis Dezobry, which described fallen gladiators lying in the coliseum’s basement—the “spoliarium”—where their weapons and garments were stripped away.
                         </p>
                       </div>
-                      
-                      <div style="position: relative; display: inline-block;">
-                        <img id="artImage" src="artifactImg/SpoliariumPainting.jpg" alt="Spoliarium Painting" style="height:400px; width:750px; object-fit:cover;">
-                      </div>
+                      <br>
+                      <div class="image-content">
+                          <video controls class="right-video" style="height: 350px; width: 750px;">
+                          <source src="artifactVid/SpoliariumVid.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                        <div class="text-content">
+                          <p class="video-source">
+                            Source: <a href="https://youtu.be/6D9X_7SRxAg?si=E0gO0iRa-C4rdHSr" target="_blank">
+                            Spoliarium - Shawn Grenier | The Canvas
+                                    </a>
+                          </p>
+                        </div>
 
                     </div>`
         },
@@ -137,12 +136,11 @@ var APP_DATA = {
           "title": "The Church against the States",
           "text": `<div class="image-text-container" style="height: auto; width: auto; display: flex; flex-direction: column !important;">
                       <div style="display: flex; flex-direction: row; gap: 15px; margin-bottom: 15px; align-items: flex-start;">
-                        <div class="image-content">
-                          <video controls class="right-video" style="height: 350px; width: 450px;">
-                          <source src="artifactVid/ElAsesinatoDelGobernadorBustamante.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
+                      
+                      <div style="position: relative; display: block; margin: 0 auto;">
+                        <img id="artImage" src="artifactImg/ElAsesinatoDelGobernadorBustamante.jpg" alt="El Asesinato del Gobernador Bustamante Painting" style="height:700px; width:450px; object-fit:cover;">
+                      </div>
+
                         <div class="text-content">
                           <p class="title"><b>El Asesinato Del Gobernador Bustamante</b></p>
                           <p class="subTitle">
@@ -152,23 +150,34 @@ var APP_DATA = {
                             <img src="img/play.png" alt="Play Audio" />
                           </button>
                           <audio id="audio" src="artifactAudio/ElAsesinatoDelGobernadorBustamante.mp3"></audio>
-                          <p class="video-source">
+                          
+                          <p>
+                          In 1719, Governor-General Fernando Manuel de Bustamante y Bustillo was assassinated in Manila under chaotic and politically charged circumstances. 
+                          </p><br>
+                          <p>
+                          Renowned Filipino painter Félix Resurrección Hidalgo later immortalized this dark colonial moment in his painting titled El asesinato del Gobernador Bustamante, which is housed in the National Art Gallery of the National Museum of the Philippines.
+                          </p><br>
+                        </div>
+                      </div>
+                        <p>
+                          The artwork depicts a dramatic scene: a mob of Dominican friars dragging Bustamante down the palace stairs, embodying the tense relationship between the colonial government and the religious orders.
+                        </p>
+                        <br>
+
+                      <div class="image-content">
+                          <video controls class="right-video" style="height: 350px; width: 750px;">
+                          <source src="artifactVid/ElAsesinatoDelGobernadorBustamante.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                      </div>
+                      <p class="video-source">
                             Source: <a href="https://www.tiktok.com/@artsgeekmanila/video/7540121394978229511" target="_blank">
                             El Asesinato Del Gobernador Bustamante - Arts Geek Manila
                                     </a>
-                          </p>
-                        </div>
-                      </div>
-                      <div>
-                        <p>
-                        In 1719, Governor-General Fernando Manuel de Bustamante y Bustillo was assassinated in Manila under chaotic and politically charged circumstances. Renowned Filipino painter Félix Resurrección Hidalgo later immortalized this dark colonial moment in his painting titled El asesinato del Gobernador Bustamante, which is housed in the National Art Gallery of the National Museum of the Philippines.
-                        The artwork depicts a dramatic scene: a mob of Dominican friars dragging Bustamante down the palace stairs, embodying the tense relationship between the colonial government and the religious orders.
-                        </p>
-                      </div>
+                      </p>
 
-                      <div style="position: relative; display: block; margin: 0 auto;">
-                        <img id="artImage" src="artifactImg/ElAsesinatoDelGobernadorBustamante.jpg" alt="El Asesinato del Gobernador Bustamante Painting" style="height:700px; width:400px; object-fit:cover;">
-                      </div>
+
+                      
                     </div>`
         },
         {
